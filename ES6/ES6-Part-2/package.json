@@ -1,0 +1,13 @@
+{
+    "name": "module-app",
+    "version": "0.0.0",
+    "license": "MIT",
+    "scripts": {
+      "start": "http-server ./"
+    },
+    "private": true,    
+    "devDependencies": {
+      "http-server": "0.10.0"
+    }
+  }
+  
