@@ -1,3 +1,5 @@
+//in chrome go to chrome://flags and enable Experimental Web Platform features
+
 console.log("base module loading");
 import {carId as Id, engineType} from './module-1.js' //you can use an alias for the imported variable with the as keyword
 import geartType from './module-1.js' //you don't need curly braces when imported the default exported variable of a module
