@@ -1,0 +1,9 @@
+<div style="border:3px solid red">
+  PARENT COMPONENT The child component select the company: {{selectedCompany}}
+  <div style="border:3px solid blue">
+    CHILD COMPONENT (Click a company)
+    <app-child #child [companies]="companies" (companyClicked)="setSelectedCompany($event)"></app-child>
+  </div>
+  <input (click)="child.selectYahoo()" type="button" value="trigger child method from template" />
+  <input (click)="setYahooCompany()" type="button" value="triger child method from parent class" />
+</div>
