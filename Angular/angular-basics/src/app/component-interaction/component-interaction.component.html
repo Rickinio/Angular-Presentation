@@ -7,3 +7,17 @@
   <input (click)="child.selectYahoo()" type="button" value="trigger child method from template" />
   <input (click)="setYahooCompany()" type="button" value="triger child method from parent class" />
 </div>
+
+
+<div style="border:3px solid red;margin-top:20px;">
+  <h4>If we import the service in our application module providers then we will keep the state through the life of the application.</h4>
+  <h4>If we import the service in our component providers then we will keep the state only while our component is alive.</h4>
+  <h4>In order to use ngModel we need to import FormsModule from @angular/forms in our application module</h4>
+    PARENT COMPONENT (add driver)
+    <input type="text" [(ngModel)]="selectedDriver" />
+    <input type="button" value="Add driver" (click)="addDriver()" />
+    <div style="border:3px solid blue">
+      CHILD COMPONENT (click on a driver to set the ngModel on parent controler)
+      <app-child2></app-child2>
+    </div>    
+  </div>

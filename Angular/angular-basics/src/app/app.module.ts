@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router'
+import {FormsModule} from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { InterpolationComponent } from './interpolation/interpolation.component';
@@ -10,6 +11,8 @@ import { MultiplyAmountPipe } from './shared/multiply-amount.pipe';
 import { PipesComponent } from './pipes/pipes.component';
 import { ComponentInteractionComponent } from './component-interaction/component-interaction.component';
 import { ChildComponent } from './component-interaction/child.component';
+import { DriversService } from './shared/drivers.service';
+import { Child2Component } from './component-interaction/child2.component';
 
 @NgModule({
   declarations: [
@@ -20,10 +23,12 @@ import { ChildComponent } from './component-interaction/child.component';
     MultiplyAmountPipe,
     PipesComponent,
     ComponentInteractionComponent,
-    ChildComponent
+    ChildComponent,
+    Child2Component
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot([
       { path: 'interpolation', component: InterpolationComponent },
       { path: 'prop-binding', component: PropBindingComponent },
@@ -32,7 +37,7 @@ import { ChildComponent } from './component-interaction/child.component';
       { path: 'component-interaction', component: ComponentInteractionComponent },
     ])
   ],
-  providers: [],
+  providers: [DriversService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

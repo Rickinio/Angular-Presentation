@@ -24,7 +24,7 @@ export class ChildComponent implements OnInit {
     return this._companies
   }
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }
