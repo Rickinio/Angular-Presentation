@@ -1,0 +1,29 @@
+<p>
+  You can display a property of the component. {{componentProperty}}
+</p>
+<p>
+  You can call a method of the component. The double of 5 is {{calcDouble(5)}}
+</p>
+<p>
+  You can evaluate expressions {{5*2+10}}
+</p>
+<p ngNonBindable>
+  You can disable the angular evaluation with ngNonBindable {{name}}
+</p>
+<p>
+  There is a new safe navigation operator ? {{someObj?.Prop}}.
+</p>
+<p ngNonBindable> If we use {{someObj.Prop}} it will throw and exception</p>
+<p ngNonBindable>
+  With interpolation we can't use javascript expressions that have side effects like: <br/>
+  <span>
+    <pre>
+      =
+      ++
+      --
+      +=
+      chaining expressions with ;
+      also bitwise operator | and &
+    </pre>
+  </span>
+</p>
