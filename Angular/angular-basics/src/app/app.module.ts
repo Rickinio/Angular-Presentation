@@ -14,6 +14,7 @@ import { ChildComponent } from './component-interaction/child.component';
 import { DriversService } from './shared/drivers.service';
 import { Child2Component } from './component-interaction/child2.component';
 import { StylesComponent } from './styles/styles.component';
+import { ImportantDirective } from './shared/important.directive';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { StylesComponent } from './styles/styles.component';
     ComponentInteractionComponent,
     ChildComponent,
     Child2Component,
-    StylesComponent
+    StylesComponent,
+    ImportantDirective
   ],
   imports: [
     BrowserModule,

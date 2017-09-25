@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class PipesComponent implements OnInit {
   superHero:string = "Batman";
   amounts:number[] = [10,30,50];
+  color:string = "orange";
   constructor() { }
 
   ngOnInit() {
