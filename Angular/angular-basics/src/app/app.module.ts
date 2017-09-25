@@ -21,6 +21,7 @@ import { HeroListComponent } from './heroes/hero-list.component';
 import {HeroData} from './heroes/hero-api';
 import {HeroService} from './heroes/hero.service';
 import { HeroFilterPipe } from './heroes/hero-filter.pipe';
+import { HeroDetailsComponent } from './heroes/hero-details.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { HeroFilterPipe } from './heroes/hero-filter.pipe';
     StylesComponent,
     ImportantDirective,
     HeroListComponent,
-    HeroFilterPipe,    
+    HeroFilterPipe,
+    HeroDetailsComponent,    
   ],
   imports: [
     BrowserModule,
@@ -51,6 +53,7 @@ import { HeroFilterPipe } from './heroes/hero-filter.pipe';
       { path: 'component-interaction', component: ComponentInteractionComponent },
       { path: 'styles', component: StylesComponent },
       { path: 'heroes', component: HeroListComponent },
+      { path: 'heroDetails/:id', component: HeroDetailsComponent },      
     ])
   ],
   providers: [DriversService,HeroService],
