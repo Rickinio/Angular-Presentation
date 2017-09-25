@@ -1,0 +1,13 @@
+:host{
+    border: 5px solid purple;
+    padding: 20px;
+    display: block;
+}
+
+h1{
+    color: green;    
+}
+
+p{
+    color: deeppink;
+}

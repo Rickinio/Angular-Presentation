@@ -13,6 +13,7 @@ import { ComponentInteractionComponent } from './component-interaction/component
 import { ChildComponent } from './component-interaction/child.component';
 import { DriversService } from './shared/drivers.service';
 import { Child2Component } from './component-interaction/child2.component';
+import { StylesComponent } from './styles/styles.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { Child2Component } from './component-interaction/child2.component';
     PipesComponent,
     ComponentInteractionComponent,
     ChildComponent,
-    Child2Component
+    Child2Component,
+    StylesComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +37,7 @@ import { Child2Component } from './component-interaction/child2.component';
       { path: 'event-binding', component: EventBindingComponent },
       { path: 'pipes', component: PipesComponent },
       { path: 'component-interaction', component: ComponentInteractionComponent },
+      { path: 'styles', component: StylesComponent },
     ])
   ],
   providers: [DriversService],

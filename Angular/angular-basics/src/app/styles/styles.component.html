@@ -1,0 +1,40 @@
+<h1>Style Component</h1>
+<p>
+  If you want to style the host element the only way you can do it is using the <strong>":host"</strong> pseudo selector
+</p>
+<p>
+  You can also use the syntax <strong>":host(.selected)"</strong> which will apply the styles on host only if the host element
+  has the class <strong>selected</strong>
+</p>
+
+<div>
+  <p>The following syntax:</p>
+  <pre>
+      :host-context(.theme-light) h2 {{ '{' }}
+        background-color: #eef;
+        {{ '}' }} 
+  </pre>
+  <p>
+    applies a background-color style to all <strong>h2</strong> elements inside the component, only if some ancestor element
+    has the CSS class <strong>theme-light.</strong>
+  </p>
+</div>
+
+<div>
+  <p>
+    We also control how the style rules will render in our html using the <strong>encapsulation</strong> property in our
+    component decorator. There are 3 possible values:
+  </p>
+  <ul>
+    <li>
+        <p><strong>ViewEncapsulation.Native</strong> that uses the native browser shadow DOM implementation</p>
+    </li>
+    <li>
+        <p><strong>ViewEncapsulation.Emulated</strong> which is the default implementation in Angular and emulates the behavior of shadow DOM by preprocessing (and renaming) the CSS code to effectively scope the CSS to the component's view.</p>
+    </li>
+    <li>
+        <p><strong>ViewEncapsulation.None</strong>  Angular does no view encapsulation. Angular adds the CSS to the global styles. The scoping rules, isolations, and protections discussed earlier don't apply. This is essentially the same as pasting the component's styles into the HTML.</p>
+    </li>
+  </ul>
+
+</div>
