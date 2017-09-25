@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router'
-import {FormsModule} from '@angular/forms'
+import { RouterModule } from '@angular/router';
+import {FormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { AppComponent } from './app.component';
 import { InterpolationComponent } from './interpolation/interpolation.component';
@@ -15,6 +17,10 @@ import { DriversService } from './shared/drivers.service';
 import { Child2Component } from './component-interaction/child2.component';
 import { StylesComponent } from './styles/styles.component';
 import { ImportantDirective } from './shared/important.directive';
+import { HeroListComponent } from './heroes/hero-list.component';
+import {HeroData} from './heroes/hero-api';
+import {HeroService} from './heroes/hero.service';
+import { HeroFilterPipe } from './heroes/hero-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -28,11 +34,15 @@ import { ImportantDirective } from './shared/important.directive';
     ChildComponent,
     Child2Component,
     StylesComponent,
-    ImportantDirective
+    ImportantDirective,
+    HeroListComponent,
+    HeroFilterPipe,    
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
+    InMemoryWebApiModule.forRoot(HeroData),
     RouterModule.forRoot([
       { path: 'interpolation', component: InterpolationComponent },
       { path: 'prop-binding', component: PropBindingComponent },
@@ -40,9 +50,10 @@ import { ImportantDirective } from './shared/important.directive';
       { path: 'pipes', component: PipesComponent },
       { path: 'component-interaction', component: ComponentInteractionComponent },
       { path: 'styles', component: StylesComponent },
+      { path: 'heroes', component: HeroListComponent },
     ])
   ],
-  providers: [DriversService],
+  providers: [DriversService,HeroService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
