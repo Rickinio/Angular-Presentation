@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { AppComponent } from './app.component';
@@ -18,10 +18,11 @@ import { Child2Component } from './component-interaction/child2.component';
 import { StylesComponent } from './styles/styles.component';
 import { ImportantDirective } from './shared/important.directive';
 import { HeroListComponent } from './heroes/hero-list.component';
-import {HeroData} from './heroes/hero-api';
-import {HeroService} from './heroes/hero.service';
+import { HeroData } from './heroes/hero-api';
+import { HeroService } from './heroes/hero.service';
 import { HeroFilterPipe } from './heroes/hero-filter.pipe';
 import { HeroDetailsComponent } from './heroes/hero-details.component';
+import { HeroResolver } from './heroes/hero.resolver';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { HeroDetailsComponent } from './heroes/hero-details.component';
     ImportantDirective,
     HeroListComponent,
     HeroFilterPipe,
-    HeroDetailsComponent,    
+    HeroDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,10 +54,11 @@ import { HeroDetailsComponent } from './heroes/hero-details.component';
       { path: 'component-interaction', component: ComponentInteractionComponent },
       { path: 'styles', component: StylesComponent },
       { path: 'heroes', component: HeroListComponent },
-      { path: 'heroDetails/:id', component: HeroDetailsComponent },      
+      { path: 'heroDetails/:id', component: HeroDetailsComponent},
+      //{ path: 'heroDetails/:id', component: HeroDetailsComponent, resolve: { hero: HeroResolver } },
     ])
   ],
-  providers: [DriversService,HeroService],
+  providers: [DriversService, HeroService, HeroResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { HeroService } from './hero.service';
@@ -9,25 +9,28 @@ import { IHero } from './hero';
   templateUrl: './hero-details.component.html',
   styleUrls: ['./hero-details.component.css']
 })
-export class HeroDetailsComponent implements OnInit, OnDestroy {
+export class HeroDetailsComponent implements OnInit, OnDestroy,OnChanges {
+  ngOnChanges(changes: SimpleChanges): void {
+    this.hero = this._activatedRoute.snapshot.data['hero'];
+  }
 
   private routeSub: Subscription;
-  heroId: number;
   hero: IHero;
   errorMessage: string;
 
   constructor(private _heroService: HeroService,
     private _activatedRoute: ActivatedRoute,
     private _router: Router) {
-    this.heroId = +this._activatedRoute.snapshot.paramMap.get('id');
-    this.getHero(this.heroId);
+    //let heroId = +this._activatedRoute.snapshot.paramMap.get('id');
+    //this.getHero(heroId);    
   }
 
   ngOnInit() {
+    //this.hero = this._activatedRoute.snapshot.data['hero'];
     this.routeSub = this._activatedRoute.params.subscribe(
       params => {
-        this.heroId = +params['id'];
-        this.getHero(this.heroId);
+        let heroId = +params['id'];
+        this.getHero(heroId);
       }
     );
   }
@@ -47,7 +50,7 @@ export class HeroDetailsComponent implements OnInit, OnDestroy {
   }
 
   onNext(): void {
-    this._router.navigate(['/heroDetails', this.heroId++]);
+    this._router.navigate(['/heroDetails', this.hero.id++]);
   }
 
 }
