@@ -1,7 +1,7 @@
 
-<input type="button" value="Click Me!" (click)="clicked()" />
+<input class="btn btn-default" type="button" value="Click Me!" (click)="clicked()" />
 
-<input type="button" [value]="showHeroes ? 'Hide Heroes' : 'Show Heroes'" (click)="toggleHeroes()" />
+<input class="btn btn-default" type="button" [value]="showHeroes ? 'Hide Heroes' : 'Show Heroes'" (click)="toggleHeroes()" />
 
 <ul *ngIf="showHeroes">
   <li *ngFor="let hero of superHeroes; let i=index">
