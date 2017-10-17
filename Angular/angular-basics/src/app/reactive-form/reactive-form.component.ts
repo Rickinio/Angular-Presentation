@@ -89,10 +89,12 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   populateTestData(): void {
+    //When we want to set just a few of the properties of the object we use patchValue
+    //If we use setValue we need to set ALL the VALUES else there is an error in console.
       this.customerForm.patchValue({
-          firstName: 'Jack',
-          lastName: 'Harkness',
-          emailGroup: {email: 'jack@torchwood.com', confirmEmail: 'jack@torchwood.com'}
+          firstName: 'Pamela',
+          lastName: 'Anderson',
+          emailGroup: {email: 'pamela@magazine.com', confirmEmail: 'pamela@magazine.com'}
       });
   }
 
