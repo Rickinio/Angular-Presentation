@@ -23,6 +23,7 @@ import { HeroService } from './heroes/hero.service';
 import { HeroFilterPipe } from './heroes/hero-filter.pipe';
 import { HeroDetailsComponent } from './heroes/hero-details.component';
 import { HeroResolver } from './heroes/hero.resolver';
+import { TemplateFormComponent } from './template-form/template-form.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { HeroResolver } from './heroes/hero.resolver';
     HeroListComponent,
     HeroFilterPipe,
     HeroDetailsComponent,
+    TemplateFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,8 +56,9 @@ import { HeroResolver } from './heroes/hero.resolver';
       { path: 'component-interaction', component: ComponentInteractionComponent },
       { path: 'styles', component: StylesComponent },
       { path: 'heroes', component: HeroListComponent },
-      { path: 'heroDetails/:id', component: HeroDetailsComponent},
+      { path: 'heroDetails/:id', component: HeroDetailsComponent },
       //{ path: 'heroDetails/:id', component: HeroDetailsComponent, resolve: { hero: HeroResolver } },
+      { path: 'templateForm', component: TemplateFormComponent }
     ])
   ],
   providers: [DriversService, HeroService, HeroResolver],
