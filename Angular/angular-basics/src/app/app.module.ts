@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
@@ -24,6 +24,8 @@ import { HeroFilterPipe } from './heroes/hero-filter.pipe';
 import { HeroDetailsComponent } from './heroes/hero-details.component';
 import { HeroResolver } from './heroes/hero.resolver';
 import { TemplateFormComponent } from './template-form/template-form.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { UnsavedDataGuard } from './reactive-form/unsaved-data-guard-service';
 
 @NgModule({
   declarations: [
@@ -42,10 +44,12 @@ import { TemplateFormComponent } from './template-form/template-form.component';
     HeroFilterPipe,
     HeroDetailsComponent,
     TemplateFormComponent,
+    ReactiveFormComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     InMemoryWebApiModule.forRoot(HeroData),
     RouterModule.forRoot([
@@ -58,10 +62,11 @@ import { TemplateFormComponent } from './template-form/template-form.component';
       { path: 'heroes', component: HeroListComponent },
       { path: 'heroDetails/:id', component: HeroDetailsComponent },
       //{ path: 'heroDetails/:id', component: HeroDetailsComponent, resolve: { hero: HeroResolver } },
-      { path: 'templateForm', component: TemplateFormComponent }
+      { path: 'templateForm', component: TemplateFormComponent },
+      { path: 'reactiveForm', component: ReactiveFormComponent, canDeactivate: [UnsavedDataGuard] }
     ])
   ],
-  providers: [DriversService, HeroService, HeroResolver],
+  providers: [DriversService, HeroService, HeroResolver, UnsavedDataGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
