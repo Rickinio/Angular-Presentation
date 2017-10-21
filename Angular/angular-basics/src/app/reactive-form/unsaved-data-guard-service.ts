@@ -7,8 +7,8 @@ import { ReactiveFormComponent } from './reactive-form.component';
 export  class UnsavedDataGuard implements CanDeactivate<ReactiveFormComponent> {
 
     canDeactivate(component: ReactiveFormComponent): boolean {
-        if (component.customerForm.dirty) {
-            let productName = component.customerForm.get('firstName').value || 'Unknown';
+        if (component.userForm.dirty) {
+            let productName = component.userForm.get('firstName').value || 'Unknown';
             return confirm(`Navigate away will cause ${productName} to not complete sign up?`);
         }
         return true;

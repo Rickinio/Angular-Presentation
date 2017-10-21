@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Customer } from './customer';
+import { IUser } from './user';
 import { NgForm } from '@angular/forms';
+import { UserService } from '../users/user.service';
 
 @Component({
   selector: 'app-template-form',
@@ -9,16 +10,18 @@ import { NgForm } from '@angular/forms';
 })
 export class TemplateFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _userService:UserService) { }
 
   ngOnInit() {
   }
   
-  customer: Customer= new Customer();
+  user: IUser= this._userService.initializeUser();
   
-      save(customerForm: NgForm) {
-          console.log(customerForm.form);
-          console.log('Saved: ' + JSON.stringify(customerForm.value));
+      save(userForm: NgForm) {
+          console.log(userForm.form);
+          console.log('Saved: ' + JSON.stringify(userForm.value));
+          userForm.value.id = 0;
+          this._userService.saveUser(userForm.value);
       }
 
 }

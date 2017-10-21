@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { HttpInMemoryWebApiModule  } from 'angular-in-memory-web-api';
 
 import { AppComponent } from './app.component';
 import { InterpolationComponent } from './interpolation/interpolation.component';
@@ -17,12 +17,12 @@ import { DriversService } from './shared/drivers.service';
 import { Child2Component } from './component-interaction/child2.component';
 import { StylesComponent } from './styles/styles.component';
 import { ImportantDirective } from './shared/important.directive';
-import { HeroListComponent } from './heroes/hero-list.component';
-import { HeroData } from './heroes/hero-api';
-import { HeroService } from './heroes/hero.service';
-import { HeroFilterPipe } from './heroes/hero-filter.pipe';
-import { HeroDetailsComponent } from './heroes/hero-details.component';
-import { HeroResolver } from './heroes/hero.resolver';
+import { UserListComponent } from './users/user-list.component';
+import { UserData } from './users/user-api';
+import { UserService } from './users/user.service';
+import { UserFilterPipe } from './users/user-filter.pipe';
+import { UserDetailsComponent } from './users/user-details.component';
+import { UserResolver } from './users/user.resolver';
 import { TemplateFormComponent } from './template-form/template-form.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { UnsavedDataGuard } from './reactive-form/unsaved-data-guard-service';
@@ -40,18 +40,18 @@ import { UnsavedDataGuard } from './reactive-form/unsaved-data-guard-service';
     Child2Component,
     StylesComponent,
     ImportantDirective,
-    HeroListComponent,
-    HeroFilterPipe,
-    HeroDetailsComponent,
+    UserListComponent,
+    UserFilterPipe,
+    UserDetailsComponent,
     TemplateFormComponent,
     ReactiveFormComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(HeroData),
+    HttpInMemoryWebApiModule.forRoot(UserData),
+    FormsModule,
+    ReactiveFormsModule,    
     RouterModule.forRoot([
       { path: 'interpolation', component: InterpolationComponent },
       { path: 'prop-binding', component: PropBindingComponent },
@@ -59,14 +59,14 @@ import { UnsavedDataGuard } from './reactive-form/unsaved-data-guard-service';
       { path: 'pipes', component: PipesComponent },
       { path: 'component-interaction', component: ComponentInteractionComponent },
       { path: 'styles', component: StylesComponent },
-      { path: 'heroes', component: HeroListComponent },
-      { path: 'heroDetails/:id', component: HeroDetailsComponent },
-      //{ path: 'heroDetails/:id', component: HeroDetailsComponent, resolve: { hero: HeroResolver } },
+      { path: 'users', component: UserListComponent },
+      { path: 'userDetails/:id', component: UserDetailsComponent },
+      //{ path: 'userDetails/:id', component: UserDetailsComponent, resolve: { hero: UserResolver } },
       { path: 'templateForm', component: TemplateFormComponent },
       { path: 'reactiveForm', component: ReactiveFormComponent, canDeactivate: [UnsavedDataGuard] }
     ])
   ],
-  providers: [DriversService, HeroService, HeroResolver, UnsavedDataGuard],
+  providers: [DriversService, UserService, UserResolver, UnsavedDataGuard,UserData],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

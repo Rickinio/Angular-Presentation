@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ValidatorFn, AbstractControl, FormArray, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Customer } from '../template-form/customer';
+import { IUser } from '../template-form/user';
 
 import 'rxjs/add/operator/debounceTime';
 import { Router } from '@angular/router';
+import { UserService } from '../users/user.service';
 
 function emailMatcher(c: AbstractControl): {[key: string]: boolean} | null {
   let emailControl = c.get('email');
@@ -35,12 +36,12 @@ function ratingRange(min: number, max: number): ValidatorFn {
 })
 export class ReactiveFormComponent implements OnInit {
 
-  customerForm: FormGroup;
-  customer: Customer = new Customer();
+  userForm: FormGroup;
+  customer: IUser = this._userService.initializeUser();
   emailMessage: string;
 
   get addresses(): FormArray{
-      return <FormArray>this.customerForm.get('addresses');
+      return <FormArray>this.userForm.get('addresses');
   }
 
   private validationMessages = {
@@ -48,10 +49,10 @@ export class ReactiveFormComponent implements OnInit {
       pattern: 'Please enter a valid email address.'
   };
 
-  constructor(private fb: FormBuilder,private router:Router) { }
+  constructor(private fb: FormBuilder,private router:Router, private _userService:UserService) { }
 
   ngOnInit(): void {
-      this.customerForm = this.fb.group({
+      this.userForm = this.fb.group({
           firstName: ['', [Validators.required, Validators.minLength(3)]],
           lastName: ['', [Validators.required, Validators.maxLength(50)]],
           emailGroup: this.fb.group({
@@ -65,10 +66,10 @@ export class ReactiveFormComponent implements OnInit {
           addresses: this.fb.array([this.buildAddress()])
       });
 
-      this.customerForm.get('notification').valueChanges
+      this.userForm.get('notification').valueChanges
                        .subscribe(value => this.setNotification(value));
 
-      const emailControl = this.customerForm.get('emailGroup.email');
+      const emailControl = this.userForm.get('emailGroup.email');
       emailControl.valueChanges.debounceTime(1000).subscribe(value =>
           this.setMessage(emailControl));
   }
@@ -91,7 +92,7 @@ export class ReactiveFormComponent implements OnInit {
   populateTestData(): void {
     //When we want to set just a few of the properties of the object we use patchValue
     //If we use setValue we need to set ALL the VALUES else there is an error in console.
-      this.customerForm.patchValue({
+      this.userForm.patchValue({
           firstName: 'Pamela',
           lastName: 'Anderson',
           emailGroup: {email: 'pamela@magazine.com', confirmEmail: 'pamela@magazine.com'}
@@ -99,9 +100,9 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   save(): void {
-      console.log('Saved: ' + JSON.stringify(this.customerForm.value));
-      //this.customerForm.reset();
-      //this.router.navigate(['/heroes']);
+      console.log('Saved: ' + JSON.stringify(this.userForm.value));
+      //this.userForm.reset();
+      //this.router.navigate(['/users']);
   }
 
   setMessage(c: AbstractControl): void {
@@ -113,7 +114,7 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   setNotification(notifyVia: string): void {
-      const phoneControl = this.customerForm.get('phone');
+      const phoneControl = this.userForm.get('phone');
       if (notifyVia === 'text') {
           phoneControl.setValidators(Validators.required);
       } else {

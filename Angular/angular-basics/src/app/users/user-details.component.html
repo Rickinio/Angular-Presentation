@@ -1,28 +1,32 @@
-<div class='panel panel-primary' *ngIf='hero'>
+<div class='panel panel-primary' *ngIf='user'>
     <div class='panel-heading'>
-        {{'Hero: ' + hero.name}}
+        {{'User: ' + user.firstName}}
     </div>
 
     <div class='panel-body'>
         <div class='row'>
             <div class='col-md-6'>
                 <div class='row'>
-                    <div class='col-md-3'>Name:</div>
-                    <div class='col-md-6'>{{hero.name}}</div>
+                    <div class='col-md-3'>First Name:</div>
+                    <div class='col-md-6'>{{user.firstName}}</div>
                 </div>
                 <div class='row'>
-                    <div class='col-md-3'>Strength:</div>
-                    <div class='col-md-6'>{{hero.strength}}</div>
-                </div>                
+                    <div class='col-md-3'>Last Name:</div>
+                    <div class='col-md-6'>{{user.lastName}}</div>
+                </div>       
+                <div class='row'>
+                    <div class='col-md-3'>Email:</div>
+                    <div class='col-md-6'>{{user.email}}</div>
+                </div>          
             </div>
 
-            <div class='col-md-6'>
+            <!-- <div class='col-md-6'>
                 <img class='center-block img-responsive' 
                      [style.width.px]='200' 
                      [style.margin.px]='2' 
                      [src]='hero.imageUrl'
                      [title]='hero.name'>
-            </div>
+            </div> -->
         </div>
     </div>
 

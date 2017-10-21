@@ -21,7 +21,7 @@
                              placeholder="First Name (required)" 
                              required 
                              minlength="3"
-                             [(ngModel)]=customer.firstName
+                             [(ngModel)]=user.firstName
                              name="firstName"
                              #firstNameVar="ngModel" />
                       <span class="help-block" *ngIf="(firstNameVar.touched || firstNameVar.dirty) && firstNameVar.errors">
@@ -47,7 +47,7 @@
                              placeholder="Last Name (required)" 
                              required 
                              maxlength="50"
-                             [(ngModel)]="customer.lastName"
+                             [(ngModel)]="user.lastName"
                              name="lastName"
                              #lastNameVar="ngModel" />
                       <span class="help-block" *ngIf="(lastNameVar.touched || lastNameVar.dirty) && lastNameVar.errors">
@@ -70,7 +70,7 @@
                              placeholder="Email (required)" 
                              required
                              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+"
-                             [(ngModel)]="customer.email"
+                             [(ngModel)]="user.email"
                              name="email"
                              #emailVar="ngModel" />
                       <span class="help-block" *ngIf="(emailVar.touched || emailVar.dirty) && emailVar.errors">
@@ -94,30 +94,30 @@
                       <label>
                           <input id="sendCatalogId"
                                  type="checkbox"
-                                 [(ngModel)]="customer.sendCatalog"
+                                 [(ngModel)]="user.sendCatalog"
                                  name="sendCatalog" >
                           Send me your catalog
                       </label>
                   </div>
               </div>
               
-              <div *ngIf="customer.sendCatalog">
+              <div *ngIf="user.sendCatalog">
                   <div class="form-group" >
                       <label class="col-md-2 control-label">Address Type</label>
                       <div class="col-md-8">
                               <label class="radio-inline">
                                   <input type="radio" id="addressType1Id" value="home"
-                                         [(ngModel)]="customer.addressType"
+                                         [(ngModel)]="user.addressType"
                                          name="addressType">Home
                               </label>
                               <label class="radio-inline">
                                   <input type="radio" id="addressType1Id" value="work"
-                                         [(ngModel)]="customer.addressType"
+                                         [(ngModel)]="user.addressType"
                                          name="addressType">Work
                               </label>
                               <label class="radio-inline">
                                   <input type="radio" id="addressType1Id" value="other"
-                                         [(ngModel)]="customer.addressType"
+                                         [(ngModel)]="user.addressType"
                                          name="addressType">Other
                               </label>
                       </div>
@@ -131,7 +131,7 @@
                                  class="form-control" 
                                  id="street1Id" 
                                  placeholder="Street address"
-                                 [(ngModel)]="customer.street1"
+                                 [(ngModel)]="user.street1"
                                  name="street1">
                       </div>
                   </div>
@@ -144,7 +144,7 @@
                                  class="form-control" 
                                  id="street2Id"
                                  placeholder="Street address (second line)"
-                                 [(ngModel)]="customer.street2"
+                                 [(ngModel)]="user.street2"
                                  name="street2">
                       </div>
                   </div>
@@ -157,13 +157,13 @@
                                  class="form-control" 
                                  id="cityId" 
                                  placeholder="City"
-                                 [(ngModel)]="customer.city"
+                                 [(ngModel)]="user.city"
                                  name="city">
                       </div>
                       <div class="col-md-3">
                           <select class="form-control"
                                   id="stateId"
-                                  [(ngModel)]="customer.state"
+                                  [(ngModel)]="user.state"
                                   name="state">
                               <option value="" disabled selected hidden>Select a State...</option>
                               <option value="AL">Alabama</option>
@@ -181,7 +181,7 @@
                                  class="form-control" 
                                  id="zipId" 
                                  placeholder="Zip Code"
-                                 [(ngModel)]="customer.zip"
+                                 [(ngModel)]="user.zip"
                                  name="zip">
                       </div>
                   </div>
