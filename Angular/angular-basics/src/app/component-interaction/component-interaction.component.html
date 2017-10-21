@@ -1,26 +1,31 @@
+<div class="well">
+<h3>Component Interaction using template variables and @ViewChild example</h3>
 <div class="panel panel-primary">
   <div class="panel-heading">PARENT COMPONENT The child component select the company: {{selectedCompany}}</div>
   <div class="panel panel-primary" style="margin:20px;">
     <div class="panel-heading">CHILD COMPONENT (Click a company)</div>
     <app-child #child [companies]="companies" (companyClicked)="setSelectedCompany($event)"></app-child>
   </div>
-  <input (click)="child.selectYahoo()" class="btn" type="button" value="trigger child method from template" />
-  <input (click)="setYahooCompany()" class="btn" type="button" value="triger child method from parent class" />
+  <input (click)="child.selectYahoo()" class="btn" type="button" value="trigger child method from template (sets company to Yahoo)" />
+  <input (click)="setYahooCompany()" class="btn" type="button" value="triger child method from parent class (sets company to Yahoo)" />
+</div>
 </div>
 
-
-<div class="panel panel-primary">
-  <h4>If we import the service in our application module providers then we will keep the state through the life of the application.</h4>
-  <h4>If we import the service in our component providers then we will keep the state only while our component is alive.</h4>
-  <h4>In order to use ngModel we need to import FormsModule from @angular/forms in our application module</h4>
-    <div class="panel-heading">PARENT COMPONENT (add driver)</div>
-    <div class="controls form-inline">
-      <label for="driver">Driver</label>
-      <input type="text" [(ngModel)]="selectedDriver" class="input-small" id="driver">
-      <input type="button" class="btn" value="Add driver" (click)="addDriver()" />
-  </div>   
-    <div class="panel panel-primary" style="margin:20px;">
-      <div class="panel-heading">CHILD COMPONENT (click on a driver to set the ngModel on parent controler)</div>
-      <app-child2></app-child2>
-    </div>    
-  </div>
+<div class="well">
+  <h3>Component Interaction using a service</h3>
+  <div class="panel panel-primary">
+      <h5>If we import the service in our application module providers then we will keep the state through the life of the application.</h5>
+      <h5>If we import the service in our component providers then we will keep the state only while our component is alive.</h5>
+      <h5>In order to use ngModel we need to import FormsModule from @angular/forms in our application module</h5>
+        <div class="panel-heading">PARENT COMPONENT (add driver)</div>
+        <div class="controls form-inline">
+          <label for="driver">Driver</label>
+          <input type="text" [(ngModel)]="selectedDriver" class="input-small" id="driver">
+          <input type="button" class="btn" value="Add driver" (click)="addDriver()" />
+      </div>   
+        <div class="panel panel-primary" style="margin:20px;">
+          <div class="panel-heading">CHILD COMPONENT (click on a driver to set the ngModel on parent controler)</div>
+          <app-child2></app-child2>
+        </div>    
+      </div>
+</div>

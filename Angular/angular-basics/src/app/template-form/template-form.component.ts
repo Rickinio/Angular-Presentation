@@ -42,7 +42,7 @@ export class TemplateFormComponent implements OnInit {
     if (this.user.id === 0) {
       this.pageTitle = 'Add User';
     } else {
-      this.pageTitle = `Edit Edit: ${this.user.lastName}`;
+      this.pageTitle = `Edit: ${this.user.lastName}`;
     }
   }
 

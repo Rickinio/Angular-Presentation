@@ -1,6 +1,29 @@
-<p [style.background-color]="redColor">
-  This is a red paragraph.
-</p>
-<input type="button" class="btn btn-default" [disabled]="needDisable" value="We disable the button using prop binding" />
-<div [class.yellow]="isYellow" style="width:50px;height:50px"></div>
-<div [style.background-color]="isRed ? 'red' : 'blue'" style="width:50px;height:50px"></div>
+<div class="well">
+    we can use [style.background-color]="'yellow'" to set the background color to yellow
+      <p [style.background-color]="'yellow'">
+          This is a yellow paragraph.
+        </p>
+  </div>
+
+<div class="well">
+  we can use [style.background-color]="redColor" to set the background color to the value of redColor property
+    <p [style.background-color]="redColor">
+        This is a red paragraph.
+      </p>
+</div>
+
+<div class="well">
+  we can use [disabled]="needDisable" in order to disable a textbox based on a value of our model
+    <input type="button" class="btn btn-default" [disabled]="needDisable" value="We disable the button using prop binding" />
+</div>
+
+<div class="well">
+  We can you [class.yellow]="isYellow" to set the class to yellow if the isYellow is true
+    <div [class.yellow]="isYellow" style="width:50px;height:50px;margin:20px;"></div>
+</div>
+
+<div class="well">
+  We can use expression like [style.background-color]="isRed ? 'red' : 'blue'" to set the background color
+  <div [style.background-color]="isRed ? 'red' : 'blue'" style="width:50px;height:50px;margin:20px;"></div>
+</div>
+

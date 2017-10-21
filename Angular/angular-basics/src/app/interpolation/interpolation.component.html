@@ -14,16 +14,18 @@
   There is a new safe navigation operator ? {{someObj?.Prop}}.
 </p>
 <p ngNonBindable> If we use {{someObj.Prop}} it will throw and exception</p>
-<p ngNonBindable>
-  With interpolation we can't use javascript expressions that have side effects like: <br/>
-  <span>
-    <pre>
-      =
-      ++
-      --
-      +=
-      chaining expressions with ;
-      also bitwise operator | and &
-    </pre>
-  </span>
-</p>
+<div class="well">
+  <p ngNonBindable>
+    <strong>With interpolation we can't use javascript expressions that have side effects like:</strong> <br/>
+    <span>
+      <pre>
+        =
+        ++
+        --
+        +=
+        chaining expressions with ;
+        also bitwise operator | and &
+      </pre>
+    </span>
+  </p>
+</div>
