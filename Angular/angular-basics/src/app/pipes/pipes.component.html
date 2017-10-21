@@ -4,13 +4,25 @@
 
 <!-- <p appImportant backgroundColor="yellow">Ironman</p> -->
 <!-- <p appImportant="yellow">Ironman</p> -->
-<p appImportant bgColor="yellow">Ironman</p>
+<div class="well">
+  <h5>Highlight directive - We Highlight on mouseEnter event</h5>
+
+  <p appImportant bgColor="yellow">Ironman</p>
+
+</div>
+
+<div class="well">
+ <h5>Use Build in 'uppercase' pipe</h5>
+ <p>
+    {{superHero | uppercase}}
+  </p>
+</div>
+
+<div class="well">
+    <h5>Use custom Multiple pipe</h5>
+    <ul>
+        <li *ngFor="let amount of amounts">{{amount | multiplyAmount:3}}</li>
+      </ul>
+</div>
 
 
-<p>
-  {{superHero | uppercase}}
-</p>
-
-<ul>
-  <li *ngFor="let amount of amounts">{{amount | multiplyAmount:3}}</li>
-</ul>
