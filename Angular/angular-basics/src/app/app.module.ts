@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { HttpInMemoryWebApiModule  } from 'angular-in-memory-web-api';
+import { InMemoryWebApiModule  } from 'angular-in-memory-web-api';
 
 import { AppComponent } from './app.component';
 import { InterpolationComponent } from './interpolation/interpolation.component';
@@ -49,7 +49,7 @@ import { UnsavedDataGuard } from './reactive-form/unsaved-data-guard-service';
   imports: [
     BrowserModule,
     HttpModule,
-    HttpInMemoryWebApiModule.forRoot(UserData),
+    InMemoryWebApiModule.forRoot(UserData),
     FormsModule,
     ReactiveFormsModule,    
     RouterModule.forRoot([
@@ -60,9 +60,9 @@ import { UnsavedDataGuard } from './reactive-form/unsaved-data-guard-service';
       { path: 'component-interaction', component: ComponentInteractionComponent },
       { path: 'styles', component: StylesComponent },
       { path: 'users', component: UserListComponent },
-      { path: 'userDetails/:id', component: UserDetailsComponent },
+      //{ path: 'userDetails/:id', component: UserDetailsComponent },
       //{ path: 'userDetails/:id', component: UserDetailsComponent, resolve: { hero: UserResolver } },
-      { path: 'templateForm', component: TemplateFormComponent },
+      { path: 'userDetails/:id', component: TemplateFormComponent },
       { path: 'reactiveForm', component: ReactiveFormComponent, canDeactivate: [UnsavedDataGuard] }
     ])
   ],

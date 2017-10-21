@@ -1,6 +1,6 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-      Sign up
+     {{pageTitle}}
   </div>
 
   <div class="panel-body">
@@ -196,6 +196,13 @@
                               Save
                           </button>
                       </span>
+                      <span>
+                        <a class="btn btn-default"
+                           style="width:80px"
+                           (click)="deleteUser()">
+                            Delete
+                        </a>
+                    </span>    
                   </div>
               </div>
           </fieldset>
