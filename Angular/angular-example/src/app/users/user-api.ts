@@ -6,7 +6,7 @@ export class InMemoryUserApi implements InMemoryDbService {
     createDb() {     
         let users: IUser[] =[
             {
-                id: 0,
+                id: 1,
                 firstName: 'John',
                 lastName: 'Travolta',
                 email: 'john@movies.com',
@@ -15,7 +15,7 @@ export class InMemoryUserApi implements InMemoryDbService {
                 state:'CA'
             },
             {
-                id: 1,
+                id: 2,
                 firstName: 'Iron',
                 lastName: 'Mike',
                 email: 'iron@boxing.com',

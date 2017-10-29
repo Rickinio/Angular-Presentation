@@ -13,7 +13,7 @@ export class UsersComponent implements OnInit {
   errorMessage: string = '';
   users: IUser[] = [];
 
-  constructor(private _userService: UserService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
     // this.users = [
@@ -40,7 +40,7 @@ export class UsersComponent implements OnInit {
   }
 
   getUsers() {
-    this._userService.getUsers()
+    this.userService.getUsers()
       .subscribe(
       (users: IUser[]) => this.users = users,
       (error: any) => this.errorMessage = <any>error

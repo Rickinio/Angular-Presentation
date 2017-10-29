@@ -31,7 +31,7 @@
               </thead>
               <tbody>
                   <tr *ngFor='let user of users | userFilter:searchValue'>                        
-                      <td><a [routerLink]="['/userDetails', user.id]">
+                      <td><a [routerLink]="['/user-edit', user.id]">
                           {{user.firstName}}
                           </a>
                       </td>
