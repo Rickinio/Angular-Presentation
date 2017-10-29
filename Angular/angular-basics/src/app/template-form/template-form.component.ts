@@ -30,12 +30,12 @@ export class TemplateFormComponent implements OnInit {
   getUser(id: number): void {
     this._userService.getUser(id)
       .subscribe(
-      (user: IUser) => this.onProductRetrieved(user),
+      (user: IUser) => this.onUserRetrieved(user),
       (error: any) => this.errorMessage = <any>error
       );
   }
 
-  onProductRetrieved(user: IUser): void {
+  onUserRetrieved(user: IUser): void {
 
     this.user = user;
 
