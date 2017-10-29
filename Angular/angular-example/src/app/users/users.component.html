@@ -30,7 +30,7 @@
                   </tr>
               </thead>
               <tbody>
-                  <tr *ngFor='let user of users'>                        
+                  <tr *ngFor='let user of users | userFilter:searchValue'>                        
                       <td><a [routerLink]="['/userDetails', user.id]">
                           {{user.firstName}}
                           </a>
