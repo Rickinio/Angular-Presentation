@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IUser } from './user';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-users',
@@ -9,30 +10,41 @@ import { IUser } from './user';
 export class UsersComponent implements OnInit {
   pageTitle = "User's List"
   searchValue: string;
+  errorMessage: string = '';
   users: IUser[] = [];
 
-  constructor() { }
+  constructor(private _userService: UserService) { }
 
   ngOnInit() {
-    let userA: IUser = <IUser>{
-      id: 0,
-      firstName: 'John',
-      lastName: 'Travolta',
-      email: 'john@movies.com',
-      sendCatalog: false,
-      addressType: 'home',
-    };
-    let userB: IUser = <IUser>{
-      id: 1,
-      firstName: 'Iron',
-      lastName: 'Mike',
-      email: 'iron@boxing.com',
-      sendCatalog: false,
-      addressType: 'home',
-    };
+    // this.users = [
+    //   {
+    //     id: 0,
+    //     firstName: 'John',
+    //     lastName: 'Travolta',
+    //     email: 'john@movies.com',
+    //     sendCatalog: false,
+    //     addressType: 'home',
+    //     state: 'CA'
+    //   },
+    //   {
+    //     id: 1,
+    //     firstName: 'Iron',
+    //     lastName: 'Mike',
+    //     email: 'iron@boxing.com',
+    //     sendCatalog: false,
+    //     addressType: 'home',
+    //     state: 'CA'
+    //   }
+    // ];
+    this.getUsers();
+  }
 
-    this.users = [userA,userB];
-    
+  getUsers() {
+    this._userService.getUsers()
+      .subscribe(
+      (users: IUser[]) => this.users = users,
+      (error: any) => this.errorMessage = <any>error
+      );
   }
 
 }

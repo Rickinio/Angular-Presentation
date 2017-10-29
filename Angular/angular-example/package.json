@@ -24,7 +24,8 @@
     "core-js": "^2.4.1",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14",
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "angular-in-memory-web-api": "^0.5.1"
   },
   "devDependencies": {
     "@angular/cli": "1.4.9",

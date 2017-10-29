@@ -8,15 +8,16 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
 
-import { IUser } from '../template-form/user';
-import { UserData } from './user-api';
+import { InMemoryUserApi } from './user-api';
+import { IUser } from './user';
+
 
 @Injectable()
 export class UserService {
     private baseUrl = 'api/users';
     private options = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 
-    constructor(private http: Http, private _userData: UserData) { }
+    constructor(private http: Http, private _userData: InMemoryUserApi) { }
 
     getUsers(): Observable<IUser[]> {
         return this.http.get(this.baseUrl)
@@ -74,7 +75,7 @@ export class UserService {
 
     private extractData(response: Response) {
         let body = response.json();
-        return body.data || {};
+        return body || {};
     }
 
     private handleError(error: Response): Observable<any> {
