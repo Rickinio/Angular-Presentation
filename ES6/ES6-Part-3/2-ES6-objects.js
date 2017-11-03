@@ -1,3 +1,7 @@
+/*
+The Object.setPrototypeOf() method sets the prototype (i.e., the internal [[Prototype]] property)
+of a specified object to another object or null.
+*/
 let objA = {
     a: 1,
 };
@@ -11,6 +15,12 @@ Object.setPrototypeOf(objA, objB);
 console.log("Proberty b in ObjA:", objA.b);
 
 //----------------------------------//
+/*
+The Object.assign() method is used to copy the values of **all enumerable** own properties
+from one or more source objects to a target object. It will return the target object.
+SYNTAX:
+Object.assign(target, ...sources)
+*/
 
 let newObj = Object.assign({}, objA, objB);
 console.log("newObj: ", newObj);
@@ -21,6 +31,10 @@ console.log(newObj);
 
 //----------------------------------//
 
+/*
+The **Object.defineProperty()** method defines a new property
+directly on an object, or modifies an existing property on an object, and returns the object.
+*/
 let heroObj = { name: "Batman" }, otherHeroObj = { name: "Superman", ability: "Fly" };
 
 Object.defineProperty(otherHeroObj, "secretPower", {
@@ -35,9 +49,9 @@ console.log("Concat Hero props:", concatHeroes);
 
 let notANumber = NaN;
 
-console.log("notANumber === notAnumber: ", notANumber === notANumber);
-console.log("Object.is(notANumber,notANumber): ", Object.is(notANumber, notANumber));
+console.log("notANumber === notAnumber: ", notANumber === notANumber); //false
+console.log("Object.is(notANumber,notANumber): ", Object.is(notANumber, notANumber)); //true
 
 let zero = 0, negativeZero = -0;
-console.log("zero === negativeZero: ",zero === negativeZero);
-console.log("Object.is(zero, negativeZero): ", Object.is(zero, negativeZero));
+console.log("zero === negativeZero: ",zero === negativeZero); //true
+console.log("Object.is(zero, negativeZero): ", Object.is(zero, negativeZero)); //false

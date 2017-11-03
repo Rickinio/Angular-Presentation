@@ -1,3 +1,10 @@
+/*
+JavaScript classes, introduced in ECMAScript 2015, are primarily syntactical sugar
+over JavaScript's existing prototype-based inheritance. The class syntax is not introducing
+a new object-oriented inheritance model to JavaScript.
+JavaScript classes provide a much simpler and clearer syntax to create objects and deal with inheritance.
+*/
+
 class Hero {
 
     constructor() {
@@ -11,8 +18,8 @@ class Hero {
 
 let hero = new Hero();
 
-console.log("Hero type: ", typeof Hero);
-console.log("hero type: ", typeof hero);
+console.log("Hero type: ", typeof Hero); //function
+console.log("hero type: ", typeof hero); //object
 console.log("Instance of Hero: ", hero instanceof Hero);
 let isPrototypePower = hero.showSuperPower === Hero.prototype.showSuperPower
 console.log(isPrototypePower);
@@ -54,6 +61,9 @@ console.log(hybridCar.otherBrand); // logs undefined using let the variable is g
 
 //----------------------------------//
 
+/*
+STATIC Method example
+*/
 class Dog {
     static bark(){
         return "Woof";

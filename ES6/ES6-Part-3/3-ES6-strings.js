@@ -1,8 +1,8 @@
 let sentence = "The big brown fox";
 
-console.log("Starts with The: ", sentence.startsWith('The'));
-console.log("Ends with fox: ", sentence.endsWith('fox'));
-console.log("Includes big: ", sentence.includes('big'));
+console.log("Starts with The: ", sentence.startsWith('The')); //true
+console.log("Ends with fox: ", sentence.endsWith('fox')); //true
+console.log("Includes big: ", sentence.includes('big')); //true
 
 //----------------------------------//
 
@@ -13,8 +13,8 @@ console.log("We can now use emojis easily.", "How cool is that \u{1F60E} \u{1F4A
 
 //----------------------------------//
 
-console.log("padEnd", "someText".padEnd(20, "0"));
-console.log("padStart", "someText".padStart(20, "0"));
+console.log("padEnd", "someText".padEnd(20, "0")); //someText000000000000
+console.log("padStart", "someText".padStart(20, "0")); //000000000000someText
 
 //----------------------------------//
 
