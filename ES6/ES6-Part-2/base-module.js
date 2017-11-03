@@ -1,10 +1,24 @@
-//in chrome go to chrome://flags and enable Experimental Web Platform features
+/*
+ATTENTION:
+In chrome go to chrome://flags and enable Experimental Web Platform features
+*/
+
+/*
+Even though the base-module.js is the one is added in our index.html page
+javascript first resolves and evaluates the dependencies, that's why we see FIRST
+the console log of module-1.js
+*/
 
 console.log("base module loading");
-import {carId as Id, engineType} from './module-1.js' //you can use an alias for the imported variable with the as keyword
+
+import {carId as Id, engineType} from './module-1.js' //you can use an alias for the imported variable with the **as** keyword
+
 import geartType from './module-1.js' //you don't need curly braces when imported the default exported variable of a module
+
 import brand from './module-2.js' //module2 has an alternative way to export a default variable
+
 import * as superheroes from './module-3.js' //you can import all exported variables of a module using "*" and save the result in an object
+
 console.log(`The carId is ${Id} and the engine is ${engineType}`);
 console.log(`My favorite car is ${brand}`);
 console.log(`My favorite hero is ${superheroes.batman}`);
