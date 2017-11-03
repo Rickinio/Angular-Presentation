@@ -35,8 +35,12 @@ getFullName(undefined, "MyLastName"); //Use undefined if you want to use the def
 
 //----------------------------------//
 
+/*
+The Function constructor creates a new Function object.
+Calling the constructor directly can create functions dynamically,
+but suffers from security and performance issues similar to eval.
+*/
 let createFunction = new Function("value=10","console.log('Create Function:',value);console.log('another instruction')");
-//You can create a new function, the first parameter is the parameters of the function and the second parameters is the body of the function
 
 createFunction();
 createFunction(5);
