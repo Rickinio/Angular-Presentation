@@ -1,0 +1,24 @@
+<div>
+  <h1>Cart</h1>
+  <h3>#Items:{{dataService.order.totalItems}}</h3>
+  <h3>Total:{{dataService.order.subTotal | currency:"EUR":true }}</h3>
+  <table class="table table-bordered table-hover" *ngIf="dataService.order.items.length > 0">
+    <thead>
+      <tr>
+        <th>Band</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let item of dataService.order.items">
+      <tr>
+        <td>{{item.band}}</td>
+        <td>{{item.quantity}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.total | currency:"EUR":true}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 *ngIf="!dataService?.order?.items.length">No items in cart</h2>
+</div>

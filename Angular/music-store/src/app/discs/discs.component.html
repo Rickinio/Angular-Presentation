@@ -1,0 +1,26 @@
+<label for="search">Search:</label>
+<input id="search" name="search" type="text" [(ngModel)]="filter" />
+<br/>
+<br/>
+<table class="table table-bordered table-hover">
+  <thead>
+    <th>Band</th>
+    <th>Price</th>
+    <th>Shop</th>
+  </thead>
+  <tbody *ngFor="let disc of discs | discFilter:filter">
+    <tr (click)="setSelectedDisc(disc)">
+      <td>
+        <a [routerLink]="['/editDisc',disc.id]">{{disc.band}}</a>
+      </td>
+      <td>{{disc.price}}</td>
+      <td>
+        <input type="button" value="Buy" (click)="addItemToCart(disc)">
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br/>
+<br/>
+
+<app-min-desc *ngIf="selectedDisc" [disc]="selectedDisc"></app-min-desc>

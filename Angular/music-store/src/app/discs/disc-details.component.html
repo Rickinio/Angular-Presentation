@@ -1,0 +1,18 @@
+<form novalidate #formData="ngForm" (ngSubmit)="saveDisc(formData)">
+  <label for="band">Band</label>
+  <input #bandVal="ngModel" [ngClass]="{'error':!bandVal.valid}" name="band" minlength="3" required type="text" [(ngModel)]="disc.band">
+  <span *ngIf="!bandVal.valid"><b>Band name is not valid</b></span>
+  <span *ngIf="bandVal.errors?.required"><b>Band name is required</b></span>
+  <span *ngIf="bandVal.errors?.minlength"><b>Band name must be at least 3 chars</b></span>
+
+  <label for="tracks">Tracks</label>
+  <input name="tracks" min="1" max="20" type="number" [(ngModel)]="disc.tracks">
+
+  <label for="duration">Duration</label>
+  <input name="duration" type="text" required [(ngModel)]="disc.duration">
+
+  <label for="price">Price</label>
+  <input name="price" type="number" required [(ngModel)]="disc.price">
+
+  <input type="submit" value="Save Disc" />
+</form>
