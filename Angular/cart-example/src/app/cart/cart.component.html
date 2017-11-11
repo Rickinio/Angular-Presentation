@@ -1,0 +1,19 @@
+<h1>Cart:</h1>
+<h2>#Items: {{dataService.order.totalItems}}</h2>
+<h2>Total Amount: {{dataService.order.totalAmount}}</h2>
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Band</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of dataService.order.items">
+      <td>{{item.band}}</td>
+      <td>{{item.quantity}}</td>
+      <td>{{item.price}}</td>
+    </tr>
+  </tbody>
+</table>

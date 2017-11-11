@@ -1,0 +1,17 @@
+<form novalidate #formData="ngForm" (submit)="saveForm(formData)">
+  <label for="band">Band:</label>
+  <input [ngClass]="{'error':!band.valid}" #band="ngModel" required type="text" name="band" [(ngModel)]="disc.band" />
+  <span *ngIf="!band.valid">There is an error</span>
+  <span *ngIf="band.errors?.required">The band is required</span>
+
+  <label for="tracks">Tracks:</label>
+  <input type="text" name="tracks" [(ngModel)]="disc.tracks" />
+
+  <label for="duration">Duration:</label>
+  <input type="text" name="duration" [(ngModel)]="disc.duration" />
+
+  <label for="price">Tracks:</label>
+  <input type="text" name="price" [(ngModel)]="disc.price" />
+
+  <input class="btn btn-default" [disabled]="!formData.valid" type="submit" value="Save">
+</form>
